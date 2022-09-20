@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import useFetch from "../../hooks/useFetch.js"
 import { useLocation, useNavigate } from "react-router"
 import axios from "axios";
+import UpdateVerification from "../updateVerification/UpdateVerification";
 
 // the columns is coming from the app.js, which the columns as a prop of the item (e.g hotels, user, rooms etc)
 const Datatable = ({columns}) => {
@@ -16,7 +17,7 @@ const Datatable = ({columns}) => {
   const path = location.pathname.split("/")[1];
   const [list, setList] = useState();
   const {data, loading, error} = useFetch(`/${path}`)
-    console.log(location)
+   
       useEffect(()=>{
         setList(data)
       }, [data])
@@ -29,6 +30,11 @@ const Datatable = ({columns}) => {
     }catch(err){}
   };
 
+  // const [openModal, setOpenModal] = useState(false);
+  // const handleClick = () =>{
+  //     setOpenModal(true);
+  // }
+
   const actionColumn = [
     {
       field: "action",
@@ -37,7 +43,7 @@ const Datatable = ({columns}) => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to="/users/test" style={{ textDecoration: "none" }}>
+            <Link to={`/${path}/${params.row._id}`} style={{ textDecoration: "none" }}>
               <div className="viewButton">View</div>
             </Link>
             <div
@@ -46,6 +52,7 @@ const Datatable = ({columns}) => {
             >
               Delete
             </div>
+            {/* {openModal && <UpdateVerification setOpen={setOpenModal} verifyId={params.row._id} />} */}
           </div>
         );
       },
@@ -69,6 +76,7 @@ const Datatable = ({columns}) => {
         getRowId={row=>row._id}
       />
     </div>
+    
   );
 };
 

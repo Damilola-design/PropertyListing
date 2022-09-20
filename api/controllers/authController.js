@@ -16,7 +16,7 @@ export const register = async (req,res,next)=>{
         await user.save();
         const token = jwt.sign({id: user._id}, process.env.JWT);
         //to hide the password and isAdmin input
-        const {password, isAdmin, email, phone, country, img, city, ...otherDetails } = user._doc;
+        const {password, isAdmin, country, img, city, ...otherDetails } = user._doc;
         res.cookie("access_token", token, {httpOnly: true}).status(200).json({details:{...otherDetails}});
     }catch(err){
         next(err);

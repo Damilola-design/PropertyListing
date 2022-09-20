@@ -1,11 +1,11 @@
 import { width } from "@mui/system";
 
 export const userColumns = [
-  { field: "id", headerName: "ID", width: 70 },
+  { field: "_id", headerName: "ID", width: 70 },
   {
     field: "user",
     headerName: "User",
-    width: 230,
+    width: 200,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
@@ -18,9 +18,13 @@ export const userColumns = [
   {
     field: "email",
     headerName: "Email",
-    width: 230,
+    width: 200,
   },
-
+  {
+    field: "verified",
+    headerName: "Verified",
+    width: 100,
+  },
   {
     field: "country",
     headerName: "Country",
@@ -82,6 +86,53 @@ export const roomColumns = [
   {
     field: "maxPeople",
     headerName: "Max People",
+    width: 100,
+  },
+];
+
+export const verifyColums = [
+  { field: "_id", headerName: "ID", width: 70},
+  {
+    field: "name",
+    headerName: "Name",
+    width: 150,
+  },
+  {
+    field: "email",
+    headerName: "Email",
+    width: 150,
+  },
+  {
+    field: "phone",
+    headerName: "Phone",
+    width: 100,
+  },
+  {
+    field: "photo",
+    headerName: "ID photo",
+    width: 100,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          <img className="cellImg" src={params.row.photo || "https://i.ibb.co/MBtjqXQ/no-avater.gif"} alt="avatar" />
+          {params.row.username}
+        </div>
+      );
+    },
+  },
+  {
+    field: "type",
+    headerName: "ID Type",
+    width: 100,
+  },
+  {
+    field: "user_id",
+    headerName: "USer ID",
+    width: 100,
+  },
+  {
+    field: "verified",
+    headerName: "Status",
     width: 100,
   },
 ];

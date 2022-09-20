@@ -27,14 +27,38 @@
           cursor: pointer;
           border-radius: 0px 0px 0px 5px;
         }
+        .ApproveBtn{
+          border: none;
+          padding: 10px 20px;
+          background-color: #0071c2;
+          color: white;
+          font-weight: bold;
+          cursor: pointer;
+          border-radius: 5px;
+          width: 40%;
+          margin-top: 20px;
+          margin-right: 15px;
+      }
+      .RejectBtn{
+        border: none;
+        padding: 10px 20px;
+        background-color: #c20000;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+        width: 40%;
+        margin-top: 20px;
+        margin-right: 15px;
+    }
 
         .item {
           display: flex;
           gap: 20px;
 
           .itemImg {
-            width: 100px;
-            height: 100px;
+            width: 50%;
+            height: 50%;
             border-radius: 50%;
             object-fit: cover;
           }
@@ -81,4 +105,27 @@
       margin-bottom: 20px;
     }
   }
+}
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Nunito", sans-serif;
+}
+
+.App .openModalBtn {
+  width: 200px;
+  height: 40px;
+  border: none;
+  border-radius: 6px;
+  background-color: cornflowerblue;
+  color: white;
+  cursor: pointer;
+}
+body {
+  padding: 0;
+  margin: 0;
 }

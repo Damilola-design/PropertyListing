@@ -5,6 +5,7 @@ import authRoute from "./routes/auth.js";
 import usersRoute from "./routes/users.js";
 import hotelsRoute from "./routes/hotels.js";
 import roomsRoute from "./routes/rooms.js";
+import verifyRoute from "./routes/verify.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 
@@ -43,6 +44,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/hotels", hotelsRoute);
 app.use("/api/rooms", roomsRoute);
+app.use("/api/verify", verifyRoute);
 
 
 // Lets make error middleware incase our app ran into error

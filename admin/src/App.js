@@ -10,7 +10,7 @@ import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
 import { Navigate} from "react-router-dom"
-import { hotelColumns, roomColumns, userColumns } from "./datatablesource";
+import { hotelColumns, roomColumns, userColumns, verifyColums } from "./datatablesource";
 import NewHotel from "./pages/newHotel/NewHotel";
 import NewRoom from "./pages/newRoom/NewRoom";
 
@@ -87,6 +87,19 @@ function App() {
                 </ProtectedRoute> 
                 }
               />
+            </Route>
+            <Route path="verify">
+              <Route index 
+              element={
+              <ProtectedRoute>
+                <List columns={verifyColums} />
+                </ProtectedRoute>} 
+                />
+              <Route path=":id" element={
+                <ProtectedRoute> 
+                <Single />
+                </ProtectedRoute> 
+              } />
             </Route>
           </Route>
         </Routes>
